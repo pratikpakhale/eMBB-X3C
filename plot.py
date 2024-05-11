@@ -15,27 +15,27 @@ def plot_results(results, xlabel, ylabel, title):
 
 with open('results/varying_nodes_storage_lock.json') as f:
     results = json.load(f)
-    plot_results(results, 'Nodes', 'Total Power Consumed', 'Nodes vs Total Power Consumed (Storage Lock)')
+    plot_results(results, 'Nodes', 'Total Power Consumed', 'Nodes vs Total Power Consumed (Storage Constant)')
 
 with open('results/varying_nodes_data_lock.json') as f:
     results = json.load(f)
-    plot_results(results, 'Nodes', 'Total Power Consumed', 'Nodes vs Total Power Consumed (Data Lock)')
+    plot_results(results, 'Nodes', 'Total Power Consumed', 'Nodes vs Total Power Consumed (Data Constant)')
 
 with open('results/varying_nodes_data_storage_lock.json') as f:
     results = json.load(f)
-    plot_results(results, 'Nodes', 'Total Power Consumed', 'Nodes vs Total Power Consumed (Data  & Storage Lock)')
+    plot_results(results, 'Nodes', 'Total Power Consumed', 'Nodes vs Total Power Consumed (Data  & Storage Constant)')
 
 with open('results/varying_gateways_data_lock.json') as f:
     results = json.load(f)
-    plot_results(results, 'Gateways', 'Total Power Consumed', 'Gateways vs Total Power Consumed (Storage Lock)')
+    plot_results(results, 'Gateways', 'Total Power Consumed', 'Gateways vs Total Power Consumed (Storage Constant)')
 
 with open('results/varying_gateways_storage_lock.json') as f:
     results = json.load(f)
-    plot_results(results, 'Gateways', 'Total Power Consumed', 'Gateways vs Total Power Consumed (Storage Lock)')
+    plot_results(results, 'Gateways', 'Total Power Consumed', 'Gateways vs Total Power Consumed (Storage Constant)')
 
 with open('results/varying_gateways_data_storage_lock.json') as f:
     results = json.load(f)
-    plot_results(results, 'Gateways', 'Total Power Consumed', 'Gateways vs Total Power Consumed (Data & Storage Lock)')
+    plot_results(results, 'Gateways', 'Total Power Consumed', 'Gateways vs Total Power Consumed (Data & Storage Constant)')
 
 
 with open('results/varying_nodes.json') as f:
