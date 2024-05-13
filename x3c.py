@@ -102,28 +102,51 @@ def exact_cover(nodes, gateways, links):
         return last_optimal_gateways, last_optimal_nodes, last_optimal_links
 
 
-def nodes_gateways_links(num_nodes, num_gateways, node_data_lock = False, gateway_storage_lock = False):
+# def nodes_gateways_links(num_nodes, num_gateways, node_data_lock = False, gateway_storage_lock = False):
 
+#     if node_data_lock:
+#         data = random.randint(1, 20)
+#         nodes = [Node(f'n{i}', data, random.randint(1, 20)) for i in range(1, num_nodes + 1)]
+#     else:
+#         nodes = [Node(f'n{i}', random.randint(1, 20), random.randint(1, 20)) for i in range(1, num_nodes + 1)]
+
+#     if gateway_storage_lock:
+#         storage_capacity = random.randint(20, 100)
+#         gateways = [Gateway(f'g{i}', random.randint(1, 20), storage_capacity) for i in range(1, num_gateways + 1)]
+#     else:
+#         gateways = [Gateway(f'g{i}', random.randint(1, 20), random.randint(20, 100)) for i in range(1, num_gateways + 1)]
+
+#     links = []
+#     for node in nodes:
+#         for gateway in gateways:
+#             # Ensure the link is feasible
+#             power_needed = random.randint(1, min(node.power, gateway.power_setup))
+#             links.append(Link(node, gateway, power_needed))
+#     return nodes, gateways, links
+
+def nodes_gateways_links(num_nodes, num_gateways, node_data_lock=False, gateway_storage_lock=False):
     if node_data_lock:
-        data = random.randint(1, 20)
+        # Locking node data at a specific value
+        data = 10  # Adjust 10 as needed for the desired locked value
         nodes = [Node(f'n{i}', data, random.randint(1, 20)) for i in range(1, num_nodes + 1)]
     else:
-        nodes = [Node(f'n{i}', random.randint(1, 20), random.randint(1, 20)) for i in range(1, num_nodes + 1)]
+        # Varying node data linearly
+        nodes = [Node(f'n{i}', i * (10 / num_nodes), random.randint(1, 20)) for i in range(1, num_nodes + 1)]
 
     if gateway_storage_lock:
-        storage_capacity = random.randint(20, 100)
+        # Locking gateway storage capacity at a specific value
+        storage_capacity = 100  # Adjust 100 as needed for the desired locked value
         gateways = [Gateway(f'g{i}', random.randint(1, 20), storage_capacity) for i in range(1, num_gateways + 1)]
     else:
-        gateways = [Gateway(f'g{i}', random.randint(1, 20), random.randint(20, 100)) for i in range(1, num_gateways + 1)]
+        # Varying gateway storage capacity linearly
+        gateways = [Gateway(f'g{i}', random.randint(1, 20), i * (100 / num_gateways)) for i in range(1, num_gateways + 1)]
 
     links = []
     for node in nodes:
         for gateway in gateways:
-            # Ensure the link is feasible
             power_needed = random.randint(1, min(node.power, gateway.power_setup))
             links.append(Link(node, gateway, power_needed))
     return nodes, gateways, links
-
 
 
 def simulate(total_nodes, total_gateways, data_lock = False, storage_lock = False):
